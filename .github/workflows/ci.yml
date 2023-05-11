@@ -42,8 +42,6 @@ jobs:
       matrix:
         distro:
           - rockylinux8
-          - centos7
-          - fedora35
           - ubuntu2004
 
     steps:
@@ -58,7 +56,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker
+        run: pip3 install ansible molecule molecule-plugins[docker] docker
 
       - name: Run Molecule tests.
         run: molecule test
